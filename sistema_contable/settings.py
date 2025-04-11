@@ -1,0 +1,1 @@
+# Configuración Django con PostgreSQL, Whitenoise, Staticfiles

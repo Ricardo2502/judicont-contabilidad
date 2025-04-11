@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: judicont-contabilidad
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn sistema_contable.wsgi"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: judicont-db
+          property: connectionString
