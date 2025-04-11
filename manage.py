@@ -1,1 +1,1 @@
-# Archivo de ejecución Django (simulado)
+# Simulado manage.py
