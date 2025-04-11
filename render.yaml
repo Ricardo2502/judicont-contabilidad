@@ -3,7 +3,7 @@ services:
     name: judicont-contabilidad
     env: python
     buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn sistema_contable.wsgi"
+    startCommand: "python run_migrations.py && gunicorn sistema_contable.wsgi"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
