@@ -1,15 +1,13 @@
 import os
 from pathlib import Path
+import dj_database_url
 
-# Base directory
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Seguridad
 SECRET_KEY = 'reemplaza-esto-por-una-clave-segura'
 DEBUG = True
 ALLOWED_HOSTS = ['*']
 
-# Aplicaciones instaladas
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -46,12 +44,22 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
         },
-    },
+    }
 ]
 
 WSGI_APPLICATION = 'sistema_contable.wsgi.application'
 
-# Base de datos (PostgreSQL Render)
-import dj_database_url
 DATABASES = {
-    'default': dj
+    'default': dj_database_url.config(default='postgres://user:password@localhost:5432/db')
+}
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+LANGUAGE_CODE = 'es-ec'
+TIME_ZONE = 'America/Guayaquil'
+USE_I18N = True
+USE_TZ = True
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
