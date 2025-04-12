@@ -1,1 +1,9 @@
-# Archivo simulado: render.yaml
+services:
+  - type: web
+    name: judicont-contabilidad
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn core.wsgi
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: core.settings
