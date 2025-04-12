@@ -1,1 +1,0 @@
-# Archivo simulado: views.py

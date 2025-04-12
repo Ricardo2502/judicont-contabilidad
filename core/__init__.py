@@ -1,1 +1,0 @@
-# Archivo simulado: __init__.py
